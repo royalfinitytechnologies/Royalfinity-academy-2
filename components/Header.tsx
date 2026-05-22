@@ -17,6 +17,7 @@ export default function Header() {
     { name: 'About Us', href: '/about' },
     { name: 'Courses', href: '#', hasDropdown: true },
     { name: 'Why Us', href: '/why-us' },
+    { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ];
 
@@ -40,7 +41,7 @@ export default function Header() {
     },
     {
       slug: 'digital-marketing',
-      title: 'Digital Marketing Specialist',
+      title: 'Digital Marketing ',
       badge: '📢 Organic Funnels & SEO',
       desc: 'Master search optimization, Google Analytics, and organic growth.',
       color: 'hover:text-amber-500',
@@ -48,12 +49,20 @@ export default function Header() {
     },
     {
       slug: 'performance-marketing',
-      title: 'Performance Marketing Architect',
+      title: 'Performance Marketing',
       badge: '📈 Media Buying & ROAS',
       desc: 'Scale campaigns with Meta Ads, Conversion APIs, and CRO.',
       color: 'hover:text-rose-500',
       img: '/images/performance_marketing.png'
     },
+   {
+  slug: 'summer-camp',
+  title: 'Summer Tech & Creative Camp',
+  badge: '☀️ AI • Coding • Creativity',
+  desc: 'An exciting hands-on summer program where students learn coding, AI tools, web design, video editing, digital marketing, and creative tech skills through real-world projects, fun activities, and interactive workshops.',
+  color: 'hover:text-yellow-400',
+  img: '/images/summer camp.png'
+}
   ];
 
   // Track scrolling to apply glass backgrounds
@@ -80,6 +89,19 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100000] transition-all duration-500 ${
@@ -100,10 +122,10 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-sans text-lg font-extrabold tracking-wider uppercase text-white group-hover:text-amber-500 transition-colors duration-300">
+              <span className="font-sans text-base sm:text-lg font-extrabold tracking-wider uppercase text-white group-hover:text-amber-500 transition-colors duration-300">
                 ROYALFINITY
               </span>
-              <span className="text-[9px] font-bold tracking-[0.25em] uppercase text-gray-400">
+              <span className="text-[8px] sm:text-[9px] font-bold tracking-[0.25em] uppercase text-gray-400">
                 ACADEMY
               </span>
             </div>
@@ -149,7 +171,7 @@ export default function Header() {
 
                     {/* Courses Dropdown Dashboard Submenu */}
                     <div
-                      className={`absolute left-1/2 -translate-x-1/2 top-full w-[450px] mt-2 rounded-2xl border border-white/5 bg-[#0D0D11]/95 backdrop-blur-xl p-5 shadow-2xl transition-all duration-300 origin-top ${
+                      className={`absolute left-1/2 -translate-x-1/2 top-full w-[720px] mt-2 rounded-2xl border border-white/5 bg-[#0D0D11]/95 backdrop-blur-xl p-5 shadow-2xl transition-all duration-300 origin-top ${
                         dropdownOpen
                           ? 'opacity-100 scale-100 pointer-events-auto translate-y-0'
                           : 'opacity-0 scale-95 pointer-events-none -translate-y-2'
@@ -158,7 +180,7 @@ export default function Header() {
                         boxShadow: '0 30px 60px -15px rgba(0, 0, 0, 0.9)',
                       }}
                     >
-                      <div className="grid grid-cols-1 gap-4">
+                      <div className="grid grid-cols-2 gap-x-6 gap-y-3">
                         {courseItems.map((course) => (
                           <Link
                             key={course.slug}
@@ -182,6 +204,28 @@ export default function Header() {
                             </div>
                           </Link>
                         ))}
+
+                        {/* 6th Slot: Quick Enroll CTA */}
+                        <Link
+                          href="/contact"
+                          className="group/enroll flex items-center gap-4 p-3 rounded-xl bg-gradient-to-r from-amber-500/10 to-yellow-600/5 hover:from-amber-500/20 hover:to-yellow-500/10 border border-amber-500/20 hover:border-amber-500/40 transition-all duration-300 shadow-lg shadow-amber-500/5"
+                          onClick={() => setDropdownOpen(false)}
+                        >
+                          <div className="relative w-16 h-12 rounded-lg bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center shrink-0 shadow-md transition-all duration-300 group-hover/enroll:scale-105">
+                            <span className="text-xl">✨</span>
+                          </div>
+                          <div className="flex flex-col">
+                            <span className="text-xs font-black uppercase tracking-wider text-amber-400 group-hover/enroll:text-amber-300 transition-colors duration-300">
+                              Ready to Elevate?
+                            </span>
+                            <span className="text-[10px] text-gray-300 font-semibold mt-0.5 leading-relaxed flex items-center gap-1">
+                              Enroll Now & Book Call
+                              <svg className="w-3 h-3 group-hover/enroll:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                              </svg>
+                            </span>
+                          </div>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -247,7 +291,7 @@ export default function Header() {
 
       {/* Mobile Drawer Panel */}
       <div
-        className={`fixed inset-x-0 top-[76px] h-screen bg-[#0A0A0C]/98 backdrop-blur-2xl transition-all duration-500 ease-in-out lg:hidden ${
+        className={`fixed inset-x-0 top-[76px] h-[calc(100vh-76px)] bottom-0 overflow-y-auto bg-[#0A0A0C]/98 backdrop-blur-2xl transition-all duration-500 ease-in-out lg:hidden ${
           mobileMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
         }`}
       >

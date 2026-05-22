@@ -67,7 +67,7 @@ const courses = [
   },
   {
     slug: 'digital-marketing',
-    title: 'Digital Marketing Specialist',
+    title: 'Digital Marketing',
     badge: '📢 Organic & Search Growth',
     duration: '12 Weeks • 100% Practical',
     accentColor: 'from-amber-500 to-yellow-500',
@@ -93,7 +93,7 @@ const courses = [
   },
   {
     slug: 'performance-marketing',
-    title: 'Performance Marketing Architect',
+    title: 'Performance Marketing',
     badge: '📈 Paid Scaling & ROAS',
     duration: '12 Weeks • 100% Practical',
     accentColor: 'from-rose-500 to-purple-600',
@@ -120,54 +120,100 @@ const courses = [
 ];
 
 const journeyCandidates = [
+  
+  
   {
     name: 'Bhavya Sachdeva',
-    role: 'Royalfinity Academy in Digital Marketing, Class of 2024',
-    text: 'The mentorship and unwavering support I received throughout my doctoral journey was truly exceptional.',
+    role: 'Digital Marketing Specialist • Royalfinity Academy, 2025',
+    text: 'Placed at Fundoo Travels, where I apply digital marketing strategies and brand growth skills daily.',
     category: 'Digital Marketing',
-    badge: 'ALUMNI CHOICE',
+    badge: '📈 PLACED',
     image: '/images/bhavya.png',
+    company: 'Fundoo Travels',
   },
   {
     name: 'Mansi Chopra',
-    role: 'Royalfinity Academy in Digital Marketing, Class of 2022',
-    text: 'The collaborative research environment and state-of-the-art facilities were crucial for my breakthrough discoveries.',
+    role: 'Performance Marketer • Royalfinity Academy, 2025',
+    text: 'Placed at MLAI Digital Pvt. Ltd., working on social media campaigns and performance marketing.',
     category: 'Digital Marketing',
-    badge: 'TOP RESEARCHER',
+    badge: '🚀 PLACED',
     image: '/images/mansi.jpeg',
+    company: 'MLAI Digital Pvt. Ltd.',
   },
   {
     name: 'Trilok',
-    role: 'Royalfinity Academy in Digital Marketing, Class of 2022',
-    text: 'The collaborative research environment and state-of-the-art facilities were crucial for my breakthrough discoveries.',
-    category: 'Digital Marketing',
-    badge: 'TOP RESEARCHER',
+    role: 'AI Video Creator • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies as an AI video creator working on creative visual projects.',
+    category: 'AI Video',
+    badge: '🎬 PLACED',
     image: '/images/trilok.jpeg',
+    company: 'Royalfinite Technologies',
   },
   {
     name: 'Jatin',
-    role: 'Royalfinity Academy in Digital Marketing, Class of 2022',
-    text: 'The collaborative research environment and state-of-the-art facilities were crucial for my breakthrough discoveries.',
-    category: 'Digital Marketing',
-    badge: 'TOP RESEARCHER',
+    role: 'AI Video Editor • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, creating cinematic AI videos and motion content.',
+    category: 'AI Video',
+    badge: '🎥 PLACED',
     image: '/images/jatin.jpeg',
+    company: 'Royalfinite Technologies',
   },
   {
     name: 'Monika',
-    role: 'Royalfinity Academy in Digital Marketing, Class of 2022',
-    text: 'The collaborative research environment and state-of-the-art facilities were crucial for my breakthrough discoveries.',
-    category: 'Digital Marketing',
-    badge: 'TOP RESEARCHER',
+    role: 'Graphic Designer • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, designing creative branding and social media visuals.',
+    category: 'Graphic Design',
+    badge: '🎨 PLACED',
     image: '/images/monika.jpeg',
+    company: 'Royalfinite Technologies',
   },
   {
     name: 'Teesha Singh',
-    role: 'Royalfinity Academy in Certification Programs, Class of 2024',
-    text: 'From day one, the program challenged me to think beyond conventional frameworks.',
-    category: 'Mern Stack Developer',
-    badge: '', 
+    role: 'MERN Stack Developer • Royalfinity Academy, 2025',
+    text: 'Placed at Inforises Technologies, building responsive and modern web applications.',
+    category: 'MERN Stack Developer',
+    badge: '💻 PLACED',
     image: '/images/teesha.jpeg',
+    company: 'Inforises Technologies',
+  },
+  {
+    name: 'Deeksha',
+    role: 'Content Creator • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, creating engaging content and creative campaigns.',
+    category: 'Content Creation',
+    badge: '✨ PLACED',
+    image: '/images/deeksha.jpeg',
+    company: 'Royalfinite Technologies',
+  },
+  {
+    name: 'Dhruv Rana',
+    role: 'Full Stack Developer • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    category: 'Full Stack Development',
+    badge: '⚡ PLACED',
+    image: '/images/dhruv.jpeg',
+    company: 'Royalfinite Technologies',
+  },
+  {
+    name: 'Aakash Bhatt',
+    role: 'Full Stack Developer • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    category: 'Full Stack Development',
+    badge: '⚡ PLACED',
+    image: '/images/aakash.jpeg',
+    company: 'Royalfinite Technologies',
+  },
+  {
+    name: 'Chandan Yadav',
+    role: 'Full Stack Developer • Royalfinity Academy, 2026',
+    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    category: 'Full Stack Development',
+    badge: '⚡ PLACED',
+    image: '/images/chandan.jpeg',
+    company: 'Royalfinite Technologies',
   }
+
+
 ];
 
 export default function Home() {
@@ -371,6 +417,55 @@ export default function Home() {
           "-=0.6"
         );
 
+      // 5.2. Alumni Testimonials Zigzag Video Cards Reveal
+      gsap.fromTo('.gsap-alumni-card-left',
+        { opacity: 0, x: -100, rotateY: -15, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.gsap-alumni-card-left',
+            start: 'top 85%',
+          }
+        }
+      );
+
+      gsap.fromTo('.gsap-alumni-card-right',
+        { opacity: 0, x: 100, rotateY: 15, scale: 0.95 },
+        {
+          opacity: 1,
+          x: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: '.gsap-alumni-card-right',
+            start: 'top 85%',
+          }
+        }
+      );
+
+      gsap.fromTo('.gsap-alumni-text-reveal',
+        { opacity: 0, y: 30, rotateX: -10 },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: '#testimonials',
+            start: 'top 80%',
+          }
+        }
+      );
+
       // 5.5. Student Journey Section 3D GSAP Reveal
       gsap.fromTo('.journey-text-3d',
         { opacity: 0, y: 30, rotateX: -15, transformOrigin: 'top center' },
@@ -420,33 +515,86 @@ export default function Home() {
         }
       );
 
-      // 5.8. Technical Programs (Courses) 3D Card Stacking Animation
-      const stickySections = gsap.utils.toArray('.sticky-section') as HTMLElement[];
-      stickySections.forEach((section, idx) => {
-        if (idx < stickySections.length - 1) {
-          gsap.to(section, {
-            scale: 0.9,
-            opacity: 0.35,
-            rotateX: -12,
-            z: -120,
-            transformOrigin: 'top center',
-            scrollTrigger: {
-              trigger: stickySections[idx + 1],
-              start: 'top bottom',
-              end: 'top top',
-              scrub: true,
-              invalidateOnRefresh: true,
-            }
+      // 5.8. Technical Programs (Courses) 3D Card Stacking Animation and Environment Slider
+      const mm = gsap.matchMedia();
+
+      // Card Stacking Animation for ALL screen sizes
+      mm.add({
+        isDesktop: "(min-width: 1024px)",
+        isMobile: "(max-width: 1023px)"
+      }, (context) => {
+        const { isMobile } = context.conditions as { isMobile: boolean };
+        const sections = gsap.utils.toArray('.sticky-section') as HTMLElement[];
+        const yOffset = isMobile ? -15 : -35;
+        
+        // Initial setup for 3D stacking depth
+        sections.forEach((section, idx) => {
+          gsap.set(section, {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            transformOrigin: 'center center -150px',
+            transformPerspective: 1200,
+            z: -100 * idx,
+            y: yOffset * idx, // Shifting upward deck-style (smaller shift on mobile to prevent top cutoff)
+            rotateX: -8 * idx,
+            opacity: 1 - 0.22 * idx,
+            scale: 1 - 0.04 * idx,
+            pointerEvents: idx === 0 ? 'auto' : 'none', // Only front card is interactive initially
           });
-        }
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: cardsContainerRef.current,
+            start: "top top",
+            end: isMobile ? "+=2000" : "+=3200", // Scroll length (shorter on mobile for better ergonomics)
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+          }
+        });
+
+        // Loop through cards to animate transitions
+        sections.forEach((section, idx) => {
+          if (idx < sections.length - 1) {
+            // Current card flies upwards and out in 3D
+            tl.to(section, {
+              yPercent: -130,
+              rotateX: 45,
+              z: 150,
+              opacity: 0,
+              pointerEvents: 'none', // Scrolled card loses interactivity
+              duration: 1,
+              ease: "power2.inOut",
+            }, `card-${idx}`);
+
+            // The cards behind move forward one step in the stack
+            for (let j = idx + 1; j < sections.length; j++) {
+              const targetIdx = j - (idx + 1); // 0 is front
+              tl.to(sections[j], {
+                z: -100 * targetIdx,
+                y: yOffset * targetIdx, // Shift forward/upward
+                rotateX: -8 * targetIdx,
+                opacity: 1 - 0.22 * targetIdx,
+                scale: 1 - 0.04 * targetIdx,
+                pointerEvents: targetIdx === 0 ? 'auto' : 'none', // Card moving to front becomes interactive
+                duration: 1,
+                ease: "power2.inOut",
+              }, `card-${idx}`);
+            }
+          }
+        });
       });
 
-      // Horizontal Scroll Sequence (Runs on desktop viewports >= 1024px only)
-      const mm = gsap.matchMedia();
-      const track = document.querySelector('.env-slider-track') as HTMLElement;
-      const trackContainer = document.querySelector('.env-slider-container') as HTMLElement;
-      if (track && trackContainer) {
-        mm.add("(min-width: 1024px)", () => {
+      // Desktop layout viewports >= 1024px for horizontal environment slider
+      mm.add("(min-width: 1024px)", () => {
+        // Horizontal Scroll Sequence for agency workspace slider
+        const track = document.querySelector('.env-slider-track') as HTMLElement;
+        const trackContainer = document.querySelector('.env-slider-container') as HTMLElement;
+        if (track && trackContainer) {
           gsap.to(track, {
             x: () => -(track.scrollWidth - trackContainer.clientWidth) + "px",
             ease: "none",
@@ -459,8 +607,8 @@ export default function Home() {
               anticipatePin: 1
             }
           });
-        });
-      }
+        }
+      });
 
     });
 
@@ -468,7 +616,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="w-full bg-[#0A0A0C] text-white">
+    <div className="w-full bg-[#0A0A0C] text-white overflow-x-hidden">
 
       {/* Immersive Cinematic Hero Fold */}
       <section id="hero" ref={heroRef} className="relative min-h-[calc(100vh-80px)] flex items-center justify-center py-20 lg:py-32 overflow-hidden border-b border-white/5 bg-black">
@@ -514,7 +662,7 @@ export default function Home() {
               <div className="hero-fade-in grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 mt-2 border-t border-white/5">
                 {[
                   { value: '100%', label: 'Practical Work' },
-                  { value: '₹15,999', label: 'Pricing Tuition' },
+                  { value: '1:1', label: 'Personal Mentors' },
                   { value: 'Free', label: 'Premium Softwares' },
                   { value: 'Direct', label: 'Placement Referrals' },
                 ].map((stat, idx) => (
@@ -651,21 +799,21 @@ export default function Home() {
       </section>
 
       {/* 3D Vertical Card Stacking Showcase Container */}
-      <div ref={cardsContainerRef} className="stacked-container">
+      <div ref={cardsContainerRef} className="stacked-container relative w-full h-screen overflow-hidden bg-[#0A0A0C]">
         {courses.map((course, idx) => (
           <section
             key={idx}
-            className="sticky-section relative w-full bg-[#0A0A0C] border-t border-white/5"
-            style={{ zIndex: 30 + idx }}
+            className="sticky-section absolute inset-0 w-full h-full overflow-hidden bg-transparent flex items-center justify-center"
+            style={{ zIndex: 30 + (courses.length - idx) }}
           >
             {/* Background Glow */}
             <div className={`absolute top-1/4 right-1/4 w-80 h-80 ${course.glowClass} pointer-events-none -z-10 opacity-70`}></div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 sm:py-12 lg:py-24 relative z-20">
-              <div className="grid grid-cols-12 gap-6 lg:gap-12 items-center">
+            <div className="w-[92%] sm:w-[90%] md:w-[85%] lg:w-full max-w-5xl mx-auto px-5 py-6 sm:px-8 sm:py-8 lg:py-6 lg:px-10 relative z-20 bg-[#0D0D11] border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden block lg:flex lg:items-center h-auto lg:h-[80vh]">
+              <div className="grid grid-cols-12 gap-6 lg:gap-12 items-center lg:w-full">
 
                 {/* Left Side: Course Info */}
-                <div className="col-span-12 lg:col-span-7 flex flex-col gap-3 sm:gap-6 text-left order-2 lg:order-1">
+                <div className="col-span-12 lg:col-span-7 flex flex-col gap-3 lg:gap-4 text-left order-2 lg:order-1">
                   <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap">
                     <span className="text-2xl sm:text-5xl font-extrabold text-white/10 tracking-wider">
                       {course.num}
@@ -701,12 +849,15 @@ export default function Home() {
                   </div>
 
                   {/* Dynamic Syllabus Preview Accordion */}
-                  <div className="hidden sm:flex flex-col gap-1 sm:gap-2 pt-2 sm:pt-4">
+                  <div className="hidden sm:flex flex-col gap-1 lg:gap-2 pt-1 lg:pt-2">
                     <span className="text-[8px] sm:text-[10px] uppercase font-bold tracking-widest text-gray-500">
                       Syllabus Overview
                     </span>
 
-                    <div className="flex flex-col gap-1.5 sm:gap-2.5 max-h-[120px] sm:max-h-[160px] overflow-y-auto pr-1 sm:pr-2 custom-scrollbar">
+                    <div 
+                      data-lenis-prevent
+                      className="flex flex-col gap-1.5 sm:gap-2.5 max-h-[120px] lg:max-h-[110px] overflow-y-auto pr-1 sm:pr-2 custom-scrollbar overscroll-contain"
+                    >
                       {course.syllabus.slice(0, 3).map((module, mIdx) => {
                         const isExpanded = openAccordions[idx] === mIdx;
                         return (
@@ -736,7 +887,7 @@ export default function Home() {
                   </div>
 
                   {/* Program Action Buttons */}
-                  <div className="flex flex-row items-center gap-2 sm:gap-4 pt-3 sm:pt-6">
+                  <div className="flex flex-row items-center gap-2 sm:gap-4 pt-2 lg:pt-3">
                     <Link
                       href="/contact"
                       className="flex-1 sm:flex-none text-center px-4 py-2.5 sm:px-5 sm:py-3 rounded-lg sm:rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-amber-500 via-yellow-400 to-yellow-600 hover:scale-105 active:scale-95 transition-all duration-300"
@@ -754,7 +905,7 @@ export default function Home() {
                 </div>
 
                 {/* Right Side: Course Showcase Image */}
-                <div className="col-span-12 lg:col-span-5 w-full h-[150px] sm:h-[250px] md:h-[300px] lg:h-full lg:min-h-[400px] flex items-center justify-center p-1 sm:p-2 order-1 lg:order-2">
+                <div className="col-span-12 lg:col-span-5 w-full h-[150px] sm:h-[250px] md:h-[300px] lg:h-[360px] xl:h-[400px] flex items-center justify-center p-1 sm:p-2 order-1 lg:order-2">
                   <div className="relative w-full h-full rounded-2xl sm:rounded-3xl bg-[#0D0D11]/90 border border-white/10 shadow-2xl overflow-hidden group">
                     <img
                       src={course.image}
@@ -994,47 +1145,170 @@ export default function Home() {
       </section>
 
       {/* Alumni Reviews Testimonials Section */}
-      <section id="testimonials" className="relative z-10 w-full py-20 lg:py-28 bg-[#0A0A0C] overflow-hidden">
+      <section id="testimonials" className="relative z-10 w-full py-20 lg:py-28 bg-[#0A0A0C] overflow-hidden border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4 mb-16">
-            <span className="text-xs font-extrabold uppercase tracking-widest text-amber-500">
+          <div className="max-w-3xl mx-auto text-center flex flex-col gap-4 mb-20">
+            <span className="gsap-alumni-text-reveal text-xs font-extrabold uppercase tracking-widest text-amber-500">
               Alumni Success
             </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Reviews & Placements
+            <h2 className="gsap-alumni-text-reveal text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              Success Spotlights
             </h2>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto">
-              See how our practical developer ecosystems and agency culture transformed student goals into corporate reality.
+            <p className="gsap-alumni-text-reveal text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto font-medium">
+              See how our candidates mastered organic SEO audits, scaled paid search budgets, and leveraged technical agency skills to transform their career paths.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: 'Karan Sharma', role: 'Full Stack MERN Developer', text: 'Royalfinity Academy turned my programming from syntax learning to enterprise-level architecture building. Having Vercel Pro and AWS deployments for practice made all the difference.', rating: '⭐⭐⭐⭐⭐' },
-              { name: 'Priya Malhotra', role: 'Performance Media Buyer', text: 'Directly handling a paid advertising campaign with real marketing budgets gave me the exact skills and confidence I needed to land my agency referral slot.', rating: '⭐⭐⭐⭐⭐' },
-              { name: 'Rahul Verma', role: 'Laravel Backend Engineer', text: 'OOP, server deployments, secure code, and relational databases. They don\'t teach templates; they train you in clean production practices.', rating: '⭐⭐⭐⭐⭐' }
-            ].map((review, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-white/5 bg-[#0D0D11]/60 p-6 flex flex-col justify-between hover:bg-[#0D0D11]/85 transition-all duration-300 shadow-md"
-              >
-                <div className="flex flex-col gap-4">
-                  <span className="text-xs">{review.rating}</span>
-                  <p className="text-xs text-gray-400 leading-relaxed italic">&quot;{review.text}&quot;</p>
-                </div>
-
-                <div className="flex items-center gap-3 mt-6 pt-4 border-t border-white/5">
-                  <div className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-500/10 text-amber-500 text-xs font-bold font-sans">
-                    {review.name.charAt(0)}
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs font-bold text-white uppercase tracking-wider">{review.name}</span>
-                    <span className="text-[9px] text-gray-500 font-semibold mt-0.5">{review.role}</span>
+          {/* Zigzag Alumni Success Cards */}
+          <div className="flex flex-col gap-24 lg:gap-32 mt-12">
+            
+            {/* Card 1: Rana */}
+            <div className="gsap-alumni-card-left grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              <div className="lg:col-span-5 w-full max-w-[360px] mx-auto relative group">
+                <div className="absolute -inset-4 rounded-3xl bg-amber-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative rounded-3xl border border-white/10 bg-[#0D0D11]/60 p-2 sm:p-3 overflow-hidden shadow-2xl hover:border-amber-500/20 transition-all duration-300">
+                  <div className="relative w-full rounded-2xl overflow-hidden aspect-[9/16] bg-[#050507]">
+                    <video
+                      src="/videos/rana.mp4"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={(e) => {
+                        e.currentTarget.muted = !e.currentTarget.muted;
+                      }}
+                    />
                   </div>
                 </div>
               </div>
-            ))}
+
+              {/* Text Right */}
+              <div className="lg:col-span-7 flex flex-col items-start">
+                <span className="px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-extrabold uppercase tracking-widest rounded-xl mb-4">
+                  Organic & Search Growth
+                </span>
+                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  Digital Marketing Specialist
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-wide mb-4">
+                 Nitin Rana
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium mb-6">
+                  From Traditional Businessman to Digital Marketer: Nitin Rana's Journey
+Nitin Rana runs a successful consultancy and travel agency. Recognizing that social media and modern technology are absolute priorities for modern business growth, he wanted to upgrade his skills but lacked technical knowledge.
+
+That's when he discovered Royalfinity Academy on Instagram.
+
+The Transformation:
+
+Expert Guidance: The instructors understood his business needs and guided him toward the Advanced Digital Marketing Course.
+
+Hands-on Skills: Even before completing the course, Nitin upgraded his skills by 50%, moving to an advanced level.
+
+Total Independence: Today, he creates his own marketing banners, shoots/edits reels, and manages his brand's social media platforms completely on his own.
+
+"The professional and supportive teaching at Royalfinity Academy is unmatched. If you want to scale your business and update your skills, this is the place to be!" — Nitin Rana
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 w-full">
+                  {[
+                    'Managed ₹25,000+ live search budget',
+                    'Mastered SEO keywords & competitor audits',
+                    'Built high-converting landing pages',
+                    'Landed Growth Strategist referral role'
+                  ].map((bullet, bIdx) => (
+                    <div key={bIdx} className="flex items-start gap-2.5 text-xs text-gray-300 font-semibold leading-relaxed">
+                      <span className="text-amber-500 text-sm select-none shrink-0">✓</span>
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/courses/digital-marketing"
+                  className="px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-amber-500 to-yellow-400 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20"
+                >
+                  View Digital Marketing Stack
+                </Link>
+              </div>
+            </div>
+
+            {/* Card 2: Bhavya */}
+            <div className="gsap-alumni-card-right grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+              {/* Text Left (order-2 lg:order-1) */}
+              <div className="lg:col-span-7 order-2 lg:order-1 flex flex-col items-start">
+                <span className="px-3.5 py-1.5 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-extrabold uppercase tracking-widest rounded-xl mb-4">
+                  Full Funnel Strategy & Analytics
+                </span>
+                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  Digital Marketing Specialist
+                </span>
+                <h3 className="text-2xl sm:text-4xl font-black uppercase text-white tracking-wide mb-4">
+                  Bhavya
+                </h3>
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium mb-6">
+                  Mastering the Digital Space: Bhavya’s Journey with Royalfinity Academy
+Meet Bhavya, a bright student who wanted to learn the fast-paced world of digital marketing but was looking for the right platform to build her confidence and skills. Her search led her to Royalfinity Academy, and it turned out to be a complete game-changer.
+
+The Learning Experience:
+
+Step-by-Step Clarity: At Royalfinity, Bhavya found that digital marketing concepts weren't just explained, but broken down step-by-step for absolute clarity.
+
+100% Practical Exposure: From running high-converting ad campaigns to mastering social media management, everything she learned was completely hands-on and practical.
+
+Unmatched Mentorship: What stood out the most for Bhavya was the incredible support from her mentors, who were always ready to clear every doubt with immense patience.
+
+The Transformation:
+Thanks to the real-world projects and professional guidance, Bhavya has successfully completed her course. Today, she stepped out with immense confidence and advanced skills, ready to conquer the digital marketing industry.
+
+"My overall experience here has been absolutely amazing! The mentors are highly supportive, and I’ve gained so much confidence in using my skills. If you want to learn digital marketing, Royalfinity Academy is definitely the place to be!" — Bhavya
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 w-full">
+                  {[
+                    '40% organic rank boost on client project',
+                    'Mastered Google Analytics 4 tracking',
+                    'Audited local business portal ranking',
+                    'Secured Digital Media referral slot'
+                  ].map((bullet, bIdx) => (
+                    <div key={bIdx} className="flex items-start gap-2.5 text-xs text-gray-300 font-semibold leading-relaxed">
+                      <span className="text-amber-500 text-sm select-none shrink-0">✓</span>
+                      <span>{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link
+                  href="/courses/digital-marketing"
+                  className="px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider text-black bg-gradient-to-r from-amber-500 to-yellow-400 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-amber-500/10 hover:shadow-amber-500/20"
+                >
+                  View Digital Marketing Stack
+                </Link>
+              </div>
+
+              {/* Video Right (order-1 lg:order-2) */}
+              <div className="lg:col-span-5 order-1 lg:order-2 w-full max-w-[360px] mx-auto relative group">
+                <div className="absolute -inset-4 rounded-3xl bg-amber-500/5 blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                <div className="relative rounded-3xl border border-white/10 bg-[#0D0D11]/60 p-2 sm:p-3 overflow-hidden shadow-2xl hover:border-amber-500/20 transition-all duration-300">
+                  <div className="relative w-full rounded-2xl overflow-hidden aspect-[9/16] bg-[#050507]">
+                    <video
+                      src="/videos/bhavya.webm"
+                      controls
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover cursor-pointer"
+                      onClick={(e) => {
+                        e.currentTarget.muted = !e.currentTarget.muted;
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
         </div>

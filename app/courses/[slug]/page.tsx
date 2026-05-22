@@ -94,7 +94,7 @@ const coursesData: Record<string, {
     ]
   },
   'digital-marketing': {
-    title: 'Digital Marketing Specialist',
+    title: 'Digital Marketing',
     badge: '📢 Organic & Search Growth',
     duration: '12 Weeks • 100% Practical',
     description: 'Master organic marketing, Search Engine Optimization (SEO), high scale organic funnel architectures, and Google Ads management. Direct live budgets under guidance.',
@@ -128,7 +128,7 @@ const coursesData: Record<string, {
     ]
   },
   'performance-marketing': {
-    title: 'Performance Marketing Architect',
+    title: 'Performance Marketing',
     badge: '📈 Paid Scaling & ROAS',
     duration: '12 Weeks • 100% Practical',
     description: 'Become a highly paid media buyer. Learn conversion mathematical architectures, landing page funnel audits, A/B Split experiments, and direct Meta Ad spends.',
@@ -268,20 +268,7 @@ export default function CourseDetail({ params }: Props) {
         }
       );
 
-      // 4. Tools Provided Grid
-      gsap.fromTo('.gsap-tool-card',
-        { y: 40, opacity: 0 },
-        {
-          y: 0, opacity: 1,
-          duration: 0.7,
-          stagger: 0.1,
-          ease: 'back.out(1.2)',
-          scrollTrigger: {
-            trigger: '#tools-provided',
-            start: 'top 85%',
-          }
-        }
-      );
+
 
       // 5. Career Pathways
       gsap.fromTo('.gsap-career-card',
@@ -487,28 +474,6 @@ export default function CourseDetail({ params }: Props) {
                     <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-semibold">
                       {item}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            {/* Premium Tools Supplied */}
-            <section id="tools-provided">
-              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-wide text-white mb-2 border-b border-white/5 pb-3">
-                Paid Software Tools Included
-              </h2>
-              <p className="text-xs text-white/40 mb-6">
-                We supply full professional-level access to the following premium assets. No extra billing.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {course.toolsProvided.map((tool, idx) => (
-                  <div key={idx} className="gsap-tool-card p-5 rounded-2xl border border-white/5 bg-white/[0.01] flex flex-col justify-between h-40">
-                    <span className="text-3xl block mb-2">{tool.icon}</span>
-                    <div>
-                      <h4 className="font-extrabold text-white text-xs uppercase tracking-wider mb-1">{tool.name}</h4>
-                      <p className="text-[10px] text-white/45 leading-relaxed">{tool.desc}</p>
-                    </div>
                   </div>
                 ))}
               </div>

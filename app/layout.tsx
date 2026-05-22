@@ -37,7 +37,7 @@ export default function RootLayout({
         <SmoothScroll>
           <Header />
           <ScrollIndicator />
-          <main className="flex-grow">{children}</main>
+          <main className="flex-grow overflow-x-hidden w-full">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>

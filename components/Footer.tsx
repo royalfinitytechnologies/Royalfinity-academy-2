@@ -77,10 +77,10 @@ export default function Footer() {
                 PHP Full Stack Development
               </Link>
               <Link href="/courses/digital-marketing" className="text-sm font-semibold text-gray-300 hover:text-white transition-colors duration-300">
-                Digital Marketing Specialist
+                Digital Marketing
               </Link>
               <Link href="/courses/performance-marketing" className="text-sm font-semibold text-gray-300 hover:text-white transition-colors duration-300">
-                Performance Marketing Architect
+                Performance Marketing
               </Link>
             </div>
           </div>

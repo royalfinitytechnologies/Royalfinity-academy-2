@@ -68,79 +68,82 @@ export default function About() {
       gsap.registerPlugin(ScrollTrigger);
       ScrollTrigger.config({ ignoreMobileResize: true });
 
-      // --- 3D CANVAS SEQUENCE ENGINE ---
-      const frameCount = 19;
-      const images: HTMLImageElement[] = [];
-      let imagesLoaded = 0;
-      const sequenceObj = { frame: 0 };
+      const setupCanvasSequence = (
+        isMobileDevice: boolean,
+        frameCount: number,
+        folderName: string
+      ) => {
+        const images: HTMLImageElement[] = [];
+        let imagesLoaded = 0;
+        const sequenceObj = { frame: 0 };
 
-      const renderCanvas = () => {
-        if (!canvasRef.current || imagesLoaded < frameCount) return;
-        const context = canvasRef.current.getContext('2d');
-        if (!context) return;
-        const img = images[Math.round(sequenceObj.frame)];
-        if (!img) return;
+        const renderCanvas = () => {
+          if (!canvasRef.current || imagesLoaded < frameCount) return;
+          const context = canvasRef.current.getContext('2d');
+          if (!context) return;
+          const img = images[Math.round(sequenceObj.frame)];
+          if (!img) return;
 
-        context.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-        
-        const canvasRatio = canvasRef.current.width / canvasRef.current.height;
-        const imgRatio = img.width / img.height;
-        let drawWidth = canvasRef.current.width;
-        let drawHeight = canvasRef.current.height;
-        let offsetX = 0;
-        let offsetY = 0;
+          const canvasWidth = canvasRef.current.width;
+          const canvasHeight = canvasRef.current.height;
+          context.clearRect(0, 0, canvasWidth, canvasHeight);
 
-        if (canvasRatio > imgRatio) {
-          drawHeight = drawWidth / imgRatio;
-          offsetY = (canvasRef.current.height - drawHeight) / 2;
-        } else {
-          drawWidth = drawHeight * imgRatio;
-          offsetX = (canvasRef.current.width - drawWidth) / 2;
+          const canvasRatio = canvasWidth / canvasHeight;
+          const imgRatio = img.width / img.height;
+          let drawWidth = canvasWidth;
+          let drawHeight = canvasHeight;
+          let offsetX = 0;
+          let offsetY = 0;
+
+          if (canvasRatio > imgRatio) {
+            drawHeight = drawWidth / imgRatio;
+            offsetY = (canvasHeight - drawHeight) / 2;
+          } else {
+            drawWidth = drawHeight * imgRatio;
+            offsetX = (canvasWidth - drawWidth) / 2;
+          }
+
+          context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+        };
+
+        for (let i = 0; i < frameCount; i++) {
+          const img = new Image();
+          const handleLoad = () => {
+            imagesLoaded++;
+            if (imagesLoaded === frameCount) {
+               renderCanvas();
+               ScrollTrigger.refresh(); // Refresh pin math once images are loaded
+            }
+          };
+          img.onload = handleLoad;
+          img.onerror = handleLoad;
+          img.src = `/assets/${folderName}/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+          images.push(img);
         }
 
-        context.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
-      };
-
-      for (let i = 0; i < frameCount; i++) {
-        const img = new Image();
-        const handleLoad = () => {
-          imagesLoaded++;
-          if (imagesLoaded === frameCount) {
-             renderCanvas();
-             ScrollTrigger.refresh(); // Refresh pin math once images are loaded
+        const resizeCanvas = () => {
+          if (canvasRef.current) {
+            canvasRef.current.width = window.innerWidth;
+            canvasRef.current.height = window.innerHeight;
+            renderCanvas();
           }
         };
-        img.onload = handleLoad;
-        img.onerror = handleLoad;
-        img.src = `/assets/aboutbg/ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
-        images.push(img);
-      }
+        
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
 
-      const resizeCanvas = () => {
-        if (canvasRef.current) {
-          canvasRef.current.width = window.innerWidth;
-          canvasRef.current.height = window.innerHeight;
-          renderCanvas();
-        }
-      };
-      
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas(); 
-
-      const ctx = gsap.context(() => {
-        // Main Canvas Sequence Timeline (Runs on all viewports)
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sequenceRef.current,
             start: "top top",
-            end: "+=1800", 
+            end: isMobileDevice ? "+=1500" : "+=1800", 
             scrub: 1.2,
             pin: true,
             anticipatePin: 1
           }
         });
 
-        // Scrub through 19 frames
+        // Scrub through frames
         tl.to(sequenceObj, {
           frame: frameCount - 1,
           snap: "frame",
@@ -158,6 +161,24 @@ export default function About() {
         
         // Add breathing room before unpin
         tl.to({}, { duration: 0.5 });
+
+        return () => {
+          window.removeEventListener('resize', resizeCanvas);
+        };
+      };
+
+      const ctx = gsap.context(() => {
+        const mm = gsap.matchMedia();
+
+        // Mobile Canvas Sequence (max-width: 767px)
+        mm.add("(max-width: 767px)", () => {
+          return setupCanvasSequence(true, 41, "about_mobile_bg");
+        });
+
+        // Desktop Canvas Sequence (min-width: 768px)
+        mm.add("(min-width: 768px)", () => {
+          return setupCanvasSequence(false, 19, "aboutbg");
+        });
 
         // 2. Parallax background drifting glows
         gsap.to('.drift-glow-1', {
@@ -276,7 +297,6 @@ export default function About() {
       }, containerRef);
 
       return () => {
-        window.removeEventListener('resize', resizeCanvas);
         ctx.revert();
       };
     }
@@ -349,7 +369,7 @@ export default function About() {
   ];
 
   return (
-    <div ref={containerRef} className="relative w-full min-h-screen bg-[#0A0A0C] text-white">
+    <div ref={containerRef} className="relative w-full min-h-screen bg-[#0A0A0C] text-white overflow-x-hidden">
       
       {/* Background glow spots with parallax hooks */}
       <div className="drift-glow-1 absolute top-20 right-10 w-[500px] h-[500px] bg-glow-purple pointer-events-none -z-10 animate-pulse-slow"></div>
@@ -360,8 +380,8 @@ export default function About() {
         {/* 3D Sequence Canvas Section */}
         <section ref={sequenceRef} className="w-full h-screen bg-[#0A0A0C] relative flex flex-col items-center justify-center overflow-hidden border-b border-white/5">
           
-          <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-85 block"></canvas>
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C] via-transparent to-[#0A0A0C] z-0 pointer-events-none"></div>
+          <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-100 md:opacity-85 block"></canvas>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0C] via-transparent to-[#0A0A0C] z-0 pointer-events-none hidden md:block"></div>
 
           <div ref={textContentRef} className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col gap-5 opacity-0 invisible">
             <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-amber-500 shadow-sm">
@@ -601,7 +621,7 @@ export default function About() {
               {[
                 {
                   name: 'Bhumika Gandhi',
-                  role: 'Founder & Digital Marketing Principal',
+                  role: 'Founder & Digital Marketing Mentor',
                   desc: '6+ years of active agency operations in Digital Marketing, Media Buying, and Conversion Rate Optimization. Built Royalfinity to give graduates what they wished they had at the start of their campaigns.',
                   icon: '📢',
                   glow: 'rgba(245, 158, 11, 0.08)',
@@ -609,7 +629,7 @@ export default function About() {
                 },
                 {
                   name: 'Lavish Sachdeva',
-                  role: 'Co-Founder & Web Development Principal',
+                  role: 'Co-Founder & Web Development Mentor',
                   desc: '4+ years of active web engineering, database architecture, and technical consultation. Structured the hands-on PHP Laravel and MERN Stack syllabi to ensure true enterprise readiness.',
                   icon: '💻',
                   glow: 'rgba(6, 182, 212, 0.08)',
