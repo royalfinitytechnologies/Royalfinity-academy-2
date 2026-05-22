@@ -143,7 +143,7 @@ const journeyCandidates = [
   {
     name: 'Trilok',
     role: 'AI Video Creator • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies as an AI video creator working on creative visual projects.',
+    text: 'Placed at Royalfinity Technologies as an AI video creator working on creative visual projects.',
     category: 'AI Video',
     badge: '🎬 PLACED',
     image: '/images/trilok.jpeg',
@@ -152,7 +152,7 @@ const journeyCandidates = [
   {
     name: 'Jatin',
     role: 'AI Video Editor • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, creating cinematic AI videos and motion content.',
+    text: 'Placed at Royalfinity Technologies, creating cinematic AI videos and motion content.',
     category: 'AI Video',
     badge: '🎥 PLACED',
     image: '/images/jatin.jpeg',
@@ -161,7 +161,7 @@ const journeyCandidates = [
   {
     name: 'Monika',
     role: 'Graphic Designer • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, designing creative branding and social media visuals.',
+    text: 'Placed at Royalfinity Technologies, designing creative branding and social media visuals.',
     category: 'Graphic Design',
     badge: '🎨 PLACED',
     image: '/images/monika.jpeg',
@@ -179,7 +179,7 @@ const journeyCandidates = [
   {
     name: 'Deeksha',
     role: 'Content Creator • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, creating engaging content and creative campaigns.',
+    text: 'Placed at Royalfinity Technologies, creating engaging content and creative campaigns.',
     category: 'Content Creation',
     badge: '✨ PLACED',
     image: '/images/deeksha.jpeg',
@@ -188,7 +188,7 @@ const journeyCandidates = [
   {
     name: 'Dhruv Rana',
     role: 'Full Stack Developer • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    text: 'Placed at Royalfinity Technologies, working on full stack development and live client projects.',
     category: 'Full Stack Development',
     badge: '⚡ PLACED',
     image: '/images/dhruv.jpeg',
@@ -197,7 +197,7 @@ const journeyCandidates = [
   {
     name: 'Aakash Bhatt',
     role: 'Full Stack Developer • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    text: 'Placed at Royalfinity Technologies, working on full stack development and live client projects.',
     category: 'Full Stack Development',
     badge: '⚡ PLACED',
     image: '/images/aakash.jpeg',
@@ -206,7 +206,7 @@ const journeyCandidates = [
   {
     name: 'Chandan Yadav',
     role: 'Full Stack Developer • Royalfinity Academy, 2026',
-    text: 'Placed at Royalfinite Technologies, working on full stack development and live client projects.',
+    text: 'Placed at Royalfinity Technologies, working on full stack development and live client projects.',
     category: 'Full Stack Development',
     badge: '⚡ PLACED',
     image: '/images/chandan.jpeg',
