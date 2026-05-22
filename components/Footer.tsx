@@ -99,7 +99,7 @@ export default function Footer() {
               >
                 <span className="text-sm">📍</span>
                 <span className="leading-relaxed font-semibold">
-                  5C/15, NIT-5, Faridabad, Haryana, 121001
+                  5A/81, 1st Floor, NIT-5, Faridabad, Haryana, 121001
                 </span>
               </a>
               <a href="tel:+919211816999" className="flex items-center gap-2.5 text-sm text-gray-400 hover:text-white transition-colors duration-300">
