@@ -21,6 +21,9 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Royalfinity Academy | Learn Skills. Use Premium Tools. Build Your Future.",
   description: "Royalfinity Academy gives you real-world experience with free access to all paid tools — in an office-like environment where ambition is the dress code. Master MERN, PHP, and Marketing.",
+    icons: {
+    icon: "/fav.ico",
+  },
 };
 
 export default function RootLayout({
