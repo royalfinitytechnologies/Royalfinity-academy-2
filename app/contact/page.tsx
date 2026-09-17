@@ -196,7 +196,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-extrabold text-white text-xs uppercase tracking-wider mb-2">Campus Address</h3>
                   <p className="text-xs sm:text-sm text-white/50 leading-relaxed font-semibold">
-                    5C/15, NIT-5, Faridabad, Haryana, 121001
+                    1J/49, NIT-1, Faridabad, Haryana, 121001
                   </p>
                   <p className="text-[10px] text-amber-500 font-extrabold uppercase tracking-widest mt-3">
                     10:00 AM - 7:00 PM • Monday - Saturday
